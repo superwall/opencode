@@ -46,6 +46,11 @@ export namespace BunProc {
   }
 
   export function which() {
+    // If running as a compiled binary, use the system's bun executable
+    // Otherwise use the current process
+    if (process.execPath.includes("supervibes-server")) {
+      return "bun"
+    }
     return process.execPath
   }
 
