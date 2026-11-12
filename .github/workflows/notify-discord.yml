@@ -4,11 +4,14 @@ on:
   release:
     types: [published]   # fires only when a release is published
 
+permissions:
+  contents: read
+
 jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
       - name: Send nicely-formatted embed to Discord
-        uses: SethCohen/github-releases-to-discord@v1
+        uses: SethCohen/github-releases-to-discord@24d166886aee4646d448c8a389ff9e1ebcab3682 # v1
         with:
           webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
